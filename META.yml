@@ -18,5 +18,7 @@ no_index:
     - t
     - inc
 requires:
+  DBI: 0
+  HTML::FromArrayref: 0
   Test::More: 0
-version: 0.52
+version: 0.53

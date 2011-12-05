@@ -32,10 +32,12 @@
       },
       "runtime" : {
          "requires" : {
+            "DBI" : 0,
+            "HTML::FromArrayref" : 0,
             "Test::More" : 0
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.52"
+   "version" : "0.53"
 }
