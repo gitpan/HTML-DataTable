@@ -13,11 +13,11 @@ HTML::DataTable::DBI - Print HTML tables from SQL queries
 
 =head1 VERSION
 
-Version 0.52
+Version 0.54
 
 =cut
 
-our $VERSION = 0.52;
+our $VERSION = 0.54;
 
 =head1 SYNOPSIS
 
@@ -29,7 +29,7 @@ our $VERSION = 0.52;
     ],
     sql => 'SELECT * FROM table_name WHERE foreign_key = ?',
     sql_params => [ $some_value ],
-    delete =>
+    delete => { } # Delete spec as shown below
   );
   print $list;
 
@@ -57,7 +57,7 @@ An optional arrayref containing the actual parameters for the SQL query.
 
 =head3 delete
 
-An optional hashref telling the list what record to delete. If this is included, a column will be added to the table to show trash icons. The hashref can take either of two forms. If the SQL query for this table is not parameterized - that is, the record's ID is all we need to know which record to delete, then the hashref can simply map the column index of the record ID to the CGI argument that supplies the one to delete:
+An optional hashref telling the list what record to delete. If this is included, a column will be added to the table to show trash icons. The hashref can take either of two forms. If the SQL query for this table is not parameterized - that is, the record's ID is all we need to know which record to delete - then the hashref can simply map the column index of the record ID to the CGI argument that supplies the one to delete:
 
   delete => {
     sql => 'DELETE FROM table WHERE record_id = ?',
@@ -76,7 +76,7 @@ An optional "noun" attribute in that hashref can supply a word to replace "recor
 
 =head3 trash_icon
 
-The URL of a trash can icon for use in the "Delete" column - defaults to /art/trash.gif.
+The URL of a trash can icon for use in the "Delete" column - defaults to /art/trash.gif.
 
 =head2 ADDITIONAL COLUMN ATTRIBUTES
 
